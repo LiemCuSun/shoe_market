@@ -1,0 +1,14 @@
+#home{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    margin:10vh auto;
+    width: fit-content;
+}
+
+.btn{
+    justify-self: center;
+    width: fit-content;
+}
+
