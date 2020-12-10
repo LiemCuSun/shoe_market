@@ -66,9 +66,9 @@ function UserCart(props) {
         setSelectedIndex(null)
     }
 
+    let tempCart = props.cart
     function handleDone() {
         console.log('function handle done executed')
-        let tempCart = props.cart
         tempCart[selectedIndex].qty = qty.qty
         tempCart[selectedIndex].total = qty.qty * tempCart[selectedIndex].price
 
@@ -129,13 +129,22 @@ function UserCart(props) {
         )
     }
 
+    let totalAmount = 0
+    function totAmount () {
+        for (let i = 0; i < tempCart.length; i++) {
+            totalAmount += tempCart[i].qty * tempCart[i].price
+        }
+        console.log(totalAmount)
+    }
+
     if (!props.username) return <Redirect to='/login' />
     return (
         <div style={styles.root}>
             <div style={styles.title}>
                 <h1 style={styles.subTitle}><i className="fas fa-shopping-cart"></i> User Cart</h1>
             </div>
-            <Table responsive striped bordered hover variant= 'light' style={{borderRadius:"15px",background: 'rgba(82, 192, 192, 0.5)'}}>
+            <Table responsive striped bordered hover variant= 'light' 
+            style={{borderRadius:"15px",background: 'rgba(82, 192, 192, 0.5)'}}>
                 {renderTableHead()}
                 <tbody>
                     {
@@ -154,11 +163,13 @@ function UserCart(props) {
                                 {
                                     selectedIndex === index ?
                                         <div style={styles.qty}>
-                                            <IconButton disabled={qty.qty === 0 ? true : false} onClick={() => setQty({ qty: qty.qty - 1 })}>
+                                            <IconButton disabled={qty.qty === 0 ? true : false} 
+                                            onClick={() => setQty({ qty: qty.qty - 1 })}>
                                                 <RemoveCircleIcon />
                                             </IconButton>
                                             <h5 style={styles.qtyInfo}>{qty.qty}</h5>
-                                            <IconButton disabled={qty.qty >= item.stock ? true : false} onClick={() => setQty({ qty: qty.qty + 1 })}>
+                                            <IconButton disabled={qty.qty >= item.stock ? true : false} 
+                                            onClick={() => setQty({ qty: qty.qty + 1 })}>
                                                 <AddCircleIcon />
                                             </IconButton>
                                         </div>
@@ -169,7 +180,8 @@ function UserCart(props) {
                             <td style={{ textAlign: "center" }}>
                                 {
                                     selectedIndex === index ?
-                                        `IDR ${(item.price * qty.qty).toLocaleString()}` : `IDR ${(item.total).toLocaleString()}`
+                                        `IDR ${(item.price * qty.qty).toLocaleString()}` 
+                                        : `IDR ${(item.total).toLocaleString()}`
                                 }
                             </td>
                             <td>
@@ -214,7 +226,10 @@ function UserCart(props) {
                     ))}
                 </tbody>
             </Table>
-            {/* <h6>Price: IDR {props.price ? data.price.toLocaleString() : 0}</h6> */}
+            {totAmount()}
+            <div style={{justifyContent:'right', marginLeft:'80%'}}>
+            <h4>Subtotal: IDR {totalAmount ? totalAmount.toLocaleString() : 0}</h4>
+            </div>
             <Button
                 variant="contained"
                 style={styles.checkOutButton}

@@ -24,7 +24,7 @@ function Login(props) {
     let renderCount = useRef(1)
     useEffect(() => {
         renderCount.current = renderCount.current + 1
-    })
+    },[])
 
 
     let usernameRef = useRef('')
@@ -32,9 +32,6 @@ function Login(props) {
     console.log(usernameRef, passwordRef)
 
 
-    let [loginCon, setLoginCon] = useState(false)
-    let handleLoginCon = () => setLoginCon(true)
-    console.log(loginCon)
 
     // function handleUsersChange(e) {
     //     setUsers(e.target.value)
@@ -61,7 +58,6 @@ function Login(props) {
                 if (res.data.length === 0) return setRegErr([true, 'Invalid username or password'])
 
                 props.login(res.data[0])
-                handleLoginCon()
                 // localStorage.setItem("username", username) ini syntax lebih panjang
                 localStorage.username = username
 
@@ -69,10 +65,9 @@ function Login(props) {
             })
             .catch((err) => { console.log(err) })
     }
-
-    if (loginCon) return <Redirect to='/' />
+    if (props.username) return <Redirect to='/' />
     console.log(usernameRef.current.value)
-    console.log(`I rendered ${renderCount.current} times`)
+    console.log(`login page rendered ${renderCount.current} times`)
     return (
         <div style={styles.background}>
             <div style={styles.container}>
@@ -81,7 +76,7 @@ function Login(props) {
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
                         <InputGroup.Text id="basic-addon1">
-                            <i class="fas fa-user"></i>
+                            <i className="fas fa-user"></i>
                         </InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl
@@ -96,7 +91,7 @@ function Login(props) {
                     <InputGroup.Prepend style={{ cursor: 'pointer', width: '40px' }}
                         onClick={() => setVisible(!visible)}>
                         <InputGroup.Text id="basic-addon1">
-                            <i class={visible ? "fas fa-eye-slash" : "fas fa-eye"}></i>
+                            <i className={visible ? "fas fa-eye-slash" : "fas fa-eye"}></i>
                             {/* {visible ? <i class="fas fa-eye"></i> : <i class="fas fa-eye-slash"></i>} */}
                         </InputGroup.Text>
                     </InputGroup.Prepend>

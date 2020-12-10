@@ -28,7 +28,7 @@ export default function Products() {
     return (
         <div styles={{ padding: "50px", }}>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
-                <h1 style={{width: "100vw"}}>Our Products</h1>
+                <h1 style={{width: "100vw",marginLeft:'40px'}}>Our Products</h1>
                 {data.map((item, index) => {
                     return (
                         <Card key={index} style={{ width: '18rem', marginBottom: '20px', display: 'flex', flexDirection: 'column' }}>

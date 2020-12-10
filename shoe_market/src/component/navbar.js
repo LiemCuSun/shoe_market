@@ -17,6 +17,9 @@ import { connect } from "react-redux"
 //NOTE import action log out
 import { logout } from "../action"
 
+// NOTE import cart button
+import CartButton from '../component/cartButton.jsx'
+
 
 class Navigation extends React.Component {
     handleLogout = () => {
@@ -45,9 +48,18 @@ class Navigation extends React.Component {
                             <strong>HOME</strong>
                         </NavLink>
                     </Nav>
-                    <Link to='/cart'>
-                        <i className="fas fa-shopping-cart" style={{ fontSize: '22px', color: 'white', marginRight:"50px" }}></i>
-                    </Link>
+                    <div className="right-content">
+                        <div className="cart" style={{display:"flex", flexDirection:'row'}}>
+                            <CartButton/>
+                            <h6 className="cart-total" style={{padding:'10px'}}>
+                                { 
+                                    this.props.cart.length === 0 ?
+                                    'Rp 0, 00' :
+                                    'Rp ' + this.props.cart.map(item => item.total).reduce((a, b) => a + b).toLocaleString() + ',00'
+                                }
+                            </h6>
+                        </div>
+                    </div>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
                             <i className="fas fa-user" style={{ marginRight: "10px" }}></i>
@@ -59,8 +71,8 @@ class Navigation extends React.Component {
                                 <Dropdown.Item onClick={this.handleLogout}>Log Out</Dropdown.Item>
                                 :
                                 <>
-                                    <Dropdown.Item><Link to='/login'>Login</Link></Dropdown.Item>
-                                    <Dropdown.Item><Link to='/sign-up'>Sign Up</Link></Dropdown.Item>
+                                    <Dropdown.Item as={Link} to='/login' >Login</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to='/sign-up'>Sign Up</Dropdown.Item>
                                 </>
                             }
                         </Dropdown.Menu>
@@ -76,7 +88,8 @@ let mapStateToProps = (state) => {
     return {
         username: state.user.username,
         password: state.user.password,
-        email: state.user.email
+        email: state.user.email,
+        cart: state.user.cart
     }
 }
 
