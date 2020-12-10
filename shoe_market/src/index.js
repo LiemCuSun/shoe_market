@@ -11,7 +11,7 @@ import App from './App';
 
 
 // import browserRouter
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 // import create Store for react redux
 import { createStore } from "redux"
@@ -33,9 +33,9 @@ globalState.subscribe(() => console.log("Global State : ", globalState.getState(
 
 ReactDOM.render(
   <Provider store={globalState}>
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

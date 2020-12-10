@@ -10,14 +10,17 @@ export default function CarouselComp() {
     let [galleryItem, setGalleryItem] = useState([])
     let [titleImg, setTitleImg] = useState([])
     let renderCount = useRef(1)
+    useEffect(() => {
+        renderCount.current = renderCount.current + 1
+    })
 
 
     useEffect(() => {
         Axios.get("http://localhost:2000/slider")
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 let data = res.data
-                console.log(data[0].image)
+                // console.log(data[0].image)
                 let gallery = []
                 let tempTitle = []
 
@@ -27,11 +30,10 @@ export default function CarouselComp() {
                 for (let i = 0; i < data.length; i++) {
                     tempTitle.push(data[i].title)
                 }
-                console.log(gallery)
-                console.log(tempTitle)
+                // console.log(gallery)
+                // console.log(tempTitle)
                 setGalleryItem(gallery)
                 setTitleImg(tempTitle)
-                renderCount.current = renderCount.current + 1
             })
             .catch((err) => console.log(err))
     }, [])
@@ -44,8 +46,8 @@ export default function CarouselComp() {
 
 
     console.log(`Carousel component rendered ${renderCount.current} times`)
-    console.log(galleryItem)
-    console.log(titleImg)
+    // console.log(galleryItem)
+    // console.log(titleImg)
     return (
         <div style={styles.background}>
             <div style={styles.container}>
@@ -56,13 +58,13 @@ export default function CarouselComp() {
             <Carousel style={styles.container2}>
                 {galleryItem.map((item, index) => {
                     return (
-                        <Carousel.Item>
+                        <Carousel.Item key={index}>
                             <img
                                 className="d-block w-100" style={{ height: "520px" }}
                                 src={item}
                                 alt="First slide"
                             />
-                            <Carousel.Caption>
+                            <Carousel.Caption key={index}>
                                 <h3>{titleImg[index]}</h3>
                                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                             </Carousel.Caption>

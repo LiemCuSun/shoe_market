@@ -68,7 +68,8 @@ export default class signUp extends React.Component {
                             username: username,
                             password: password,
                             role: "user",
-                            email: email
+                            email: email,
+                            cart: []
                         })
                             .then((res) => {
                                 console.log(res.data)
@@ -90,7 +91,7 @@ export default class signUp extends React.Component {
         // console.log(username)
         let symbol = /[!@#$%^&*@]/
 
-        if (symbol.test(username) || username.length < 5) return this.setState({ userValidErr: [true, "*Can\'t include symbol and min 6 char"] })
+        if (symbol.test(username) || username.length < 5) return this.setState({ userValidErr: [true, "*Can\\'t include symbol and min 6 char"] })
 
         this.setState({ userValidErr: [false, ""] })
     }

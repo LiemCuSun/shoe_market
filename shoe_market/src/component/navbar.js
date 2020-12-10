@@ -3,7 +3,7 @@ import {
     Navbar,
     Nav,
     NavLink,
-    Dropdown
+    Dropdown,
 } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -20,42 +20,37 @@ import { logout } from "../action"
 
 class Navigation extends React.Component {
     handleLogout = () => {
-        this.props.logout()
         localStorage.removeItem('username')
+        this.props.logout()
     }
     render() {
         return (
             <Navbar fixed='top' style={{ background: 'rgba(82, 192, 192, 0.7)' }} expand="lg">
                 <Navbar>
-                    <Link to='/'>
-                        <Navbar.Brand as={Link} to='/'>
-                            <img
-                                alt=""
-                                src={LOGO.default}
-                                width="80"
-                                height="50"
-                                style={{ borderRadius: '15px', margin: "0px" }}
-                            />{' '} <strong>Shoe Shop</strong>
-                        </Navbar.Brand>
-                    </Link>
+                    <Navbar.Brand as={Link} to='/'>
+                        <img
+                            alt=""
+                            src={LOGO.default}
+                            width="80"
+                            height="50"
+                            style={{ borderRadius: '15px', margin: "0px" }}
+                        />{' '} <strong>Shoe Shop</strong>
+                    </Navbar.Brand>
                 </Navbar>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <NavLink>
-                            <Link style={{ color: 'black' }} to='/'>
-                                <i class="fas fa-home" syle={{marginRight:'10px'}}></i>
-                                <strong>HOME</strong>
-                            </Link>
+                        <NavLink as={Link} to='/' style={{ color: 'black' }}>
+                            <i className="fas fa-home" syle={{ marginRight: '10px' }}></i>
+                            <strong>HOME</strong>
                         </NavLink>
                     </Nav>
-                    {/* <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
-                    </Form> */}
+                    <Link to='/cart'>
+                        <i className="fas fa-shopping-cart" style={{ fontSize: '22px', color: 'white', marginRight:"50px" }}></i>
+                    </Link>
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            <i class="fas fa-user" style={{ marginRight: "10px" }}></i>
+                            <i className="fas fa-user" style={{ marginRight: "10px" }}></i>
                             {this.props.username ? this.props.username : " Username"}
                         </Dropdown.Toggle>
 

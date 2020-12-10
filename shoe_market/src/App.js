@@ -10,6 +10,7 @@ import Home from './page/home'
 import Login from './page/login'
 import signUp from './page/Sign_Up'
 import DetailProducts from './page/detailProducts'
+import UserCart from './page/userCart'
 
 // NOTE ini untuk keep log in
 import Axios from 'axios'
@@ -38,6 +39,7 @@ class App extends React.Component {
           <Route path='/login' component={Login} />
           <Route path='/sign-up' component={signUp} />
           <Route path='/detail' component={DetailProducts} />
+          <Route path='/cart' component={UserCart} />
           <Route path='*' component={NotFound} />
         </Switch>
       </div>

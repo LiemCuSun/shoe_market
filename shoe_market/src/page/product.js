@@ -23,7 +23,7 @@ export default function Products() {
 
     }, [])
 
-    console.log(data)
+    // console.log(data)
     console.log(`Products component rendered ${renderCount.current} times`)
     return (
         <div styles={{ padding: "50px", }}>
@@ -35,10 +35,8 @@ export default function Products() {
                             <Card.Img variant="top" src={item.images[1]} />
                             <Card.Body style={styles.cardBody}>
                                 <Card.Title>{item.name}</Card.Title>
-                                <Card.Text>
-                                    {item.description}
-                                </Card.Text>
-                                <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                                <h6>Price: IDR {item.price ? item.price.toLocaleString() : 0}</h6>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', padding:"10px" }}>
                                     <Button variant="warning" >Wish List</Button>
                                     <Button variant="primary" as={Link} to={`/detail?id=${item.id}`}>Buy Now</Button>
                                 </div>

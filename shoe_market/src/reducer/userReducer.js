@@ -2,6 +2,8 @@ let INITIAL_STATE = {
     username: "",
     email: "",
     password: "",
+    id: "",
+    cart: ""
 }
 
 let userReducer = (state = INITIAL_STATE, action) => {
@@ -11,7 +13,10 @@ let userReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 username: action.payload.username,
                 email: action.payload.email,
-                password: action.payload.password
+                password: action.payload.password,
+                id: action.payload.id,
+                cart: action.payload.cart,
+                role: action.payload.role
             }
         case "LOG_OUT":
             return INITIAL_STATE
