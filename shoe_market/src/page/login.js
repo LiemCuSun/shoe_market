@@ -42,10 +42,10 @@ function Login(props) {
     let [regErr, setRegErr] = useState([false, ""])
 
 
-    function handleLogin() {
+    function handleLogin(x) {
         // let username = this.refs.username.value NOTE ini cara lama yg pake state
         // let password = this.refs.password.value
-
+        console.log(x)
         let username = usernameRef.current.value
         let password = passwordRef.current.value
         console.log(username, password)
@@ -60,6 +60,8 @@ function Login(props) {
                 props.login(res.data[0])
                 // localStorage.setItem("username", username) ini syntax lebih panjang
                 localStorage.username = username
+                localStorage.id = res.data[0].id
+                console.log(localStorage.id)
 
 
             })
@@ -146,7 +148,8 @@ const styles = {
 
 let mapStateToProps = (props) => {
     return ({
-        username: props.user.username
+        username: props.user.username,
+        id: props.user.id
     })
 }
 

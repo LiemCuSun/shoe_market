@@ -543,65 +543,29 @@
     {
       "username": "LiemCuSun",
       "password": "1234",
+      "role": "user",
       "email": "cusunliem@gmail.com",
       "id": 4,
       "cart": [
         {
-          "name": "JORDAN WESTBROOK ONE TAKE",
+          "cartID": "?id=12",
+          "name": "ADIDAS PERFORMANCE MARQUEE MID - VEGAS",
           "image": [
-            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-1.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-2.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-3.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-4.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-5.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-6.jpg"
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-6.jpg"
           ],
-          "category": "Men, Sport, Sneaker",
-          "brand": "JORDAN",
-          "colour": "WHITE/WHITE-BLACK-RAGE GREEN",
-          "price": 1500000,
+          "category": "Man, Sport, Basketball",
+          "brand": "ADIDAS",
+          "colour": "legend ink/ftwr white/flash orange",
+          "price": 1345650,
           "size": 40,
-          "qty": 10,
-          "total": 15000000,
-          "stock": 15
-        },
-        {
-          "name": "JORDAN AIR JORDAN 14 RETRO",
-          "image": [
-            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-1.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-2.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-3.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-4.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-5.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-6.jpg"
-          ],
-          "category": "Men, Sport, Sneaker",
-          "brand": "JORDAN",
-          "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
-          "price": 2680000,
-          "size": 41,
-          "qty": 2,
-          "total": 5360000,
-          "stock": 2
-        },
-        {
-          "name": "NIKE WMNS NIKE AIR MAX 90 SLIDE",
-          "image": [
-            "https://kickz.akamaized.net/en/media/images/p/1200/WMNS_NIKE_AIR_MAX_90_SLIDE-WHITE_SMOKE_GREY_ROSE_LT_SMOKE_GREY-1.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/WMNS_NIKE_AIR_MAX_90_SLIDE-WHITE_SMOKE_GREY_ROSE_LT_SMOKE_GREY-2.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/WMNS_NIKE_AIR_MAX_90_SLIDE-WHITE_SMOKE_GREY_ROSE_LT_SMOKE_GREY-3.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/WMNS_NIKE_AIR_MAX_90_SLIDE-WHITE_SMOKE_GREY_ROSE_LT_SMOKE_GREY-4.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/WMNS_NIKE_AIR_MAX_90_SLIDE-WHITE_SMOKE_GREY_ROSE_LT_SMOKE_GREY-5.jpg",
-            "https://kickz.akamaized.net/en/media/images/p/1200/WMNS_NIKE_AIR_MAX_90_SLIDE-WHITE_SMOKE_GREY_ROSE_LT_SMOKE_GREY-6.jpg"
-          ],
-          "category": "Women, Sandals, Flip Flop ",
-          "brand": "NIKE",
-          "colour": "WHITE/SMOKE GREY-ROSE-LT SMOKE GREY",
-          "price": 879650,
-          "size": 39,
-          "qty": 19,
-          "total": 16713350,
-          "stock": 19
+          "qty": 1,
+          "total": 1345650,
+          "stock": 10
         }
       ]
     },
@@ -816,6 +780,505 @@
         }
       ],
       "id": 6
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 2:54:42 PM",
+      "total": 10000000,
+      "products": [
+        {
+          "name": "NIKE AIR ZOOM-TYPE",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "NIKE",
+          "colour": "BLACK/SUMMIT WHITE-MENTA-ORANGE TRANCE",
+          "price": 2500000,
+          "size": 39,
+          "qty": 4,
+          "total": 10000000,
+          "stock": 10
+        }
+      ],
+      "invoice": 0,
+      "id": 7
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 3:08:35 PM",
+      "total": 20000000,
+      "products": [
+        {
+          "name": "NIKE AIR ZOOM-TYPE",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "NIKE",
+          "colour": "BLACK/SUMMIT WHITE-MENTA-ORANGE TRANCE",
+          "price": 2500000,
+          "size": 39,
+          "qty": 4,
+          "total": 10000000,
+          "stock": 10
+        },
+        {
+          "name": "NIKE AIR ZOOM-TYPE",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-AIR_ZOOM_TYPE-BLACK_SUMMIT_WHITE_MENTA_ORANGE_TRANCE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "NIKE",
+          "colour": "BLACK/SUMMIT WHITE-MENTA-ORANGE TRANCE",
+          "price": 2500000,
+          "size": 39,
+          "qty": 4,
+          "total": 10000000,
+          "stock": 10
+        }
+      ],
+      "invoice": 0,
+      "id": 8
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 3:29:29 PM",
+      "total": 7120000,
+      "products": [
+        {
+          "name": "NIKE KYRIE 6",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "NIKE",
+          "colour": "WHITE/BLUE FURY-OPTI YELLOW-DIGITAL PINK",
+          "price": 1780000,
+          "size": 40,
+          "qty": 4,
+          "total": 7120000,
+          "stock": 10
+        }
+      ],
+      "invoice": 0,
+      "id": 9
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 3:32:44 PM",
+      "total": 5360000,
+      "products": [
+        {
+          "name": "JORDAN AIR JORDAN 14 RETRO",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "JORDAN",
+          "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
+          "price": 2680000,
+          "size": 41,
+          "qty": 2,
+          "total": 5360000,
+          "stock": 2
+        }
+      ],
+      "invoice": 0,
+      "id": 10
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 3:34:18 PM",
+      "total": 1345650,
+      "products": [
+        {
+          "name": "ADIDAS PERFORMANCE MARQUEE MID - VEGAS",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-6.jpg"
+          ],
+          "category": "Man, Sport, Basketball",
+          "brand": "ADIDAS",
+          "colour": "legend ink/ftwr white/flash orange",
+          "price": 1345650,
+          "size": 40,
+          "qty": 1,
+          "total": 1345650,
+          "stock": 10
+        }
+      ],
+      "invoice": 0,
+      "id": 11
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 11:09:08 PM",
+      "total": 12280000,
+      "products": [
+        {
+          "cartID": "?id=2",
+          "name": "JORDAN WESTBROOK ONE TAKE",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/JORDAN_WESTBROOK_ONE_TAKE-WHITE_WHITE_BLACK_RAGE_GREEN-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "JORDAN",
+          "colour": "WHITE/WHITE-BLACK-RAGE GREEN",
+          "price": 1500000,
+          "size": 38,
+          "qty": 7,
+          "total": 10500000,
+          "stock": [
+            {
+              "code": 38,
+              "total": 5
+            },
+            {
+              "code": 39,
+              "total": 3
+            },
+            {
+              "code": 40,
+              "total": 15
+            },
+            {
+              "code": 41,
+              "total": 9
+            },
+            {
+              "code": 42,
+              "total": 7
+            }
+          ]
+        },
+        {
+          "cartID": "?id=3",
+          "name": "NIKE KYRIE 6",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/nike-KYRIE_6-WHITE_BLUE_FURY_OPTI_YELLOW_DIGITAL_PINK-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "NIKE",
+          "colour": "WHITE/BLUE FURY-OPTI YELLOW-DIGITAL PINK",
+          "price": 1780000,
+          "size": 42,
+          "qty": 1,
+          "total": 1780000,
+          "stock": [
+            {
+              "code": 38,
+              "total": 3
+            },
+            {
+              "code": 39,
+              "total": 10
+            },
+            {
+              "code": 40,
+              "total": 10
+            },
+            {
+              "code": 41,
+              "total": 5
+            },
+            {
+              "code": 42,
+              "total": 8
+            }
+          ]
+        }
+      ],
+      "invoice": 0,
+      "id": 12
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 11:10:59 PM",
+      "total": 2680000,
+      "products": [
+        {
+          "cartID": "?id=4",
+          "name": "JORDAN AIR JORDAN 14 RETRO",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "JORDAN",
+          "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
+          "price": 2680000,
+          "size": 41,
+          "qty": 1,
+          "total": 2680000,
+          "stock": 2
+        }
+      ],
+      "invoice": 0,
+      "id": 13
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 11:30:45 PM",
+      "total": 10720000,
+      "products": [
+        {
+          "cartID": "?id=4",
+          "name": "JORDAN AIR JORDAN 14 RETRO",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "JORDAN",
+          "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
+          "price": 2680000,
+          "size": 38,
+          "qty": 4,
+          "total": 10720000,
+          "stock": [
+            {
+              "code": 38,
+              "total": 4
+            },
+            {
+              "code": 39,
+              "total": 7
+            },
+            {
+              "code": 40,
+              "total": 7
+            },
+            {
+              "code": 41,
+              "total": 2
+            },
+            {
+              "code": 42,
+              "total": 0
+            }
+          ]
+        }
+      ],
+      "invoice": 0,
+      "id": 14
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/11/2020, 11:46:41 PM",
+      "total": 8040000,
+      "products": [
+        {
+          "cartID": "?id=4",
+          "name": "JORDAN AIR JORDAN 14 RETRO",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "JORDAN",
+          "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
+          "price": 2680000,
+          "size": 40,
+          "qty": 3,
+          "total": 8040000,
+          "stock": [
+            {
+              "code": 38,
+              "total": 4
+            },
+            {
+              "code": 39,
+              "total": 7
+            },
+            {
+              "code": 40,
+              "total": 7
+            },
+            {
+              "code": 41,
+              "total": 2
+            },
+            {
+              "code": 42,
+              "total": 0
+            }
+          ]
+        }
+      ],
+      "invoice": 0,
+      "id": 15
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/12/2020, 12:27:01 AM",
+      "total": 5360000,
+      "products": [
+        {
+          "cartID": "?id=4",
+          "name": "JORDAN AIR JORDAN 14 RETRO",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/Air_Jordan_14_Retro-BLACK_GYM_RED_WHITE_OFF_WHITE-6.jpg"
+          ],
+          "category": "Men, Sport, Sneaker",
+          "brand": "JORDAN",
+          "colour": "BLACK/GYM RED-WHITE-OFF WHITE",
+          "price": 2680000,
+          "size": 41,
+          "qty": 2,
+          "total": 5360000,
+          "stock": 2
+        }
+      ],
+      "invoice": 0,
+      "id": 16
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/12/2020, 12:30:14 AM",
+      "total": 543786,
+      "products": [
+        {
+          "cartID": "?id=8",
+          "name": "VANS UA CLASSIC SLIP-ON (BREAST CANCER)",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Classic_Slip_On_Breast_Cancer-Breast_Cancer_nude_check_true_white-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Classic_Slip_On_Breast_Cancer-Breast_Cancer_nude_check_true_white-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Classic_Slip_On_Breast_Cancer-Breast_Cancer_nude_check_true_white-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Classic_Slip_On_Breast_Cancer-Breast_Cancer_nude_check_true_white-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Classic_Slip_On_Breast_Cancer-Breast_Cancer_nude_check_true_white-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/vans-UA_Classic_Slip_On_Breast_Cancer-Breast_Cancer_nude_check_true_white-6.jpg"
+          ],
+          "category": "Women, Converse",
+          "brand": "VANS",
+          "colour": "cadmium yellow/tidepool",
+          "price": 543786,
+          "size": 41,
+          "qty": 1,
+          "total": 543786,
+          "stock": 1
+        }
+      ],
+      "invoice": 0,
+      "id": 17
+    },
+    {
+      "userid": 4,
+      "username": "LiemCuSun",
+      "date": "12/15/2020, 12:40:44 AM",
+      "total": 5382600,
+      "products": [
+        {
+          "cartID": "?id=12",
+          "name": "ADIDAS PERFORMANCE MARQUEE MID - VEGAS",
+          "image": [
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-1.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-2.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-3.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-4.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-5.jpg",
+            "https://kickz.akamaized.net/en/media/images/p/1200/adidas_performance-MARQUEE_MID_VEGAS-legend_ink_ftwr_white_flash_orange-6.jpg"
+          ],
+          "category": "Man, Sport, Basketball",
+          "brand": "ADIDAS",
+          "colour": "legend ink/ftwr white/flash orange",
+          "price": 1345650,
+          "size": 40,
+          "qty": 4,
+          "total": 5382600,
+          "stock": [
+            {
+              "code": 38,
+              "total": 7
+            },
+            {
+              "code": 39,
+              "total": 9
+            },
+            {
+              "code": 40,
+              "total": 10
+            },
+            {
+              "code": 41,
+              "total": 3
+            },
+            {
+              "code": 42,
+              "total": 0
+            }
+          ]
+        }
+      ],
+      "invoice": 0,
+      "id": 18
     }
   ]
 }

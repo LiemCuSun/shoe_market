@@ -16,7 +16,7 @@ let userReducer = (state = INITIAL_STATE, action) => {
                 password: action.payload.password,
                 id: action.payload.id,
                 cart: action.payload.cart,
-                role: action.payload.role
+                role: action.payload.role,
             }
         case "LOG_OUT":
             return INITIAL_STATE

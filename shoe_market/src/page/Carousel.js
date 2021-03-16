@@ -66,7 +66,6 @@ export default function CarouselComp() {
                             />
                             <Carousel.Caption key={index}>
                                 <h3>{titleImg[index]}</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     )

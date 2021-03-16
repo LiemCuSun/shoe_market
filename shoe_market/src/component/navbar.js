@@ -4,6 +4,7 @@ import {
     Nav,
     NavLink,
     Dropdown,
+    DropdownButton
 } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -24,6 +25,7 @@ import CartButton from '../component/cartButton.jsx'
 class Navigation extends React.Component {
     handleLogout = () => {
         localStorage.removeItem('username')
+        localStorage.removeItem('id')
         this.props.logout()
     }
     render() {
@@ -49,33 +51,34 @@ class Navigation extends React.Component {
                         </NavLink>
                     </Nav>
                     <div className="right-content">
-                        <div className="cart" style={{display:"flex", flexDirection:'row'}}>
-                            <CartButton/>
-                            <h6 className="cart-total" style={{padding:'10px'}}>
-                                { 
+                        <div className="cart" style={{ display: "flex", flexDirection: 'row' }}>
+                            <CartButton />
+                            <h6 className="cart-total" style={{ padding: '10px' }}>
+                                {
                                     this.props.cart.length === 0 ?
-                                    'Rp 0, 00' :
-                                    'Rp ' + this.props.cart.map(item => item.total).reduce((a, b) => a + b).toLocaleString() + ',00'
+                                        'Rp 0, 00' :
+                                        'Rp ' + this.props.cart.map(item =>
+                                            item.total).reduce((a, b) => a + b).toLocaleString() + ',00'
                                 }
                             </h6>
                         </div>
                     </div>
                     <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            <i className="fas fa-user" style={{ marginRight: "10px" }}></i>
-                            {this.props.username ? this.props.username : " Username"}
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
+                        <DropdownButton title={!this.props.username ? 'Username' : this.props.username}
+                            variant={this.props.username ? 'primary' : 'success'} id="dropdown-button-drop-left" >
                             {this.props.username ?
-                                <Dropdown.Item onClick={this.handleLogout}>Log Out</Dropdown.Item>
+                                <>
+                                    <Dropdown.Item onClick={this.handleLogout}>Log Out</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to={this.props.role === 'user' ? '/history' : '/history_admin'}>History Payment</Dropdown.Item>
+                                    <Dropdown.Item as={Link} to={this.props.role === 'user' ? '/history_style2' : '/'}>{this.props.role === 'user' ? 'History Style 2' : 'Home'}</Dropdown.Item>
+                                </>
                                 :
                                 <>
                                     <Dropdown.Item as={Link} to='/login' >Login</Dropdown.Item>
                                     <Dropdown.Item as={Link} to='/sign-up'>Sign Up</Dropdown.Item>
                                 </>
                             }
-                        </Dropdown.Menu>
+                        </DropdownButton>
                     </Dropdown>
                 </Navbar.Collapse>
             </Navbar>
@@ -89,7 +92,8 @@ let mapStateToProps = (state) => {
         username: state.user.username,
         password: state.user.password,
         email: state.user.email,
-        cart: state.user.cart
+        cart: state.user.cart,
+        role: state.user.role
     }
 }
 

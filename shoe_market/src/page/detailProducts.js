@@ -16,6 +16,8 @@ import { connect } from "react-redux"
 function DetailProducts(props) {
     console.log(props) // ini untuk liat component dari function DetailProducts(props) < harus ada props biar bisa diinspect
     let renderCount = useRef(1)
+    renderCount.current = renderCount.current + 1
+
     let [data, setData] = useState([])
     let [ToLogin, setToLogin] = useState(false)
     let [ToCart, setToCart] = useState(false)
@@ -36,7 +38,6 @@ function DetailProducts(props) {
                 // console.log(res.data[0])
                 setData(res.data[0])
                 setImg(res.data[0].images)
-                renderCount.current = renderCount.current + 1
             })
             .catch((err) => console.log(err))
     }, [inventory, props.location.search])
@@ -49,6 +50,7 @@ function DetailProducts(props) {
         console.log("added item to cart")
 
         let cartData = {
+            cartID: props.location.search,
             name: data.name,
             image: data.images,
             category: data.category,
@@ -90,13 +92,13 @@ function DetailProducts(props) {
                     <Carousel>
                         {img.map((item, index) => {
                             return (
-                                <Carousel.Item>
+                                <Carousel.Item key={index}>
                                     <img
                                         className="d-block w-100"
                                         src={item}
                                         alt="xxx"
                                     />
-                                    <Carousel.Caption>
+                                    <Carousel.Caption key={index}>
                                         <h4 style={{ background: 'rgba(82, 192, 192, 0.7)', borderRadius: '15px', }}>{data.name} - {index + 1}</h4>
                                     </Carousel.Caption>
                                 </Carousel.Item>
@@ -203,7 +205,7 @@ let mapStateToProps = (props) => {
     return ({
         username: props.user.username,
         cart: props.user.cart,
-        id: props.user.id
+        id: props.user.id,
     })
 }
 

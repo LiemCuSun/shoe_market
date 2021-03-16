@@ -7,6 +7,8 @@ import {
 } from '@material-ui/core'
 import {
     Table,
+    Modal,
+    Form
 } from 'react-bootstrap'
 
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -19,7 +21,7 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle'
 
 import { Redirect } from 'react-router-dom'
 import { URL } from '../action/helper'
-import Alert from '../component/alert'
+// import Alert from '../component/alert'
 import { login } from '../action'
 
 
@@ -27,17 +29,43 @@ import { login } from '../action'
 
 function UserCart(props) {
     console.log(props)
+    let [data, setData] = useState([])
+    let [inventory, setInventory] = useState({
+        stock: 0,
+        selectedSize: null,
+        size: 0,
+    })
+
     let [alert, setAlert] = useState(false)
+    let [alertNominal, setAlertNominal] = useState(false)
+    let [password, setPassword] = useState(false)
+    let [history, setHistory] = useState(false)
+    let [cartEmpty, setCartEmpty] = useState(false)
+    let [errPass, setErrPass] = useState(false)
+    let [stockErr, setStockErr] = useState(false)
     let [selectedIndex, setSelectedIndex] = useState(null)
     let [qty, setQty] = useState({
         qty: null
     })
-    
+    let nominal = useRef()
+    let pass = useRef()
+
+    function confPassword() {
+        console.log(pass.current.value)
+        if (pass.current.value === props.password) {
+            setErrPass(false)
+            setPassword(false)
+            hanldeOk()
+            setHistory(true)
+        } else {
+            setErrPass(true)
+        }
+    }
 
     let renderCount = useRef(1)
     useEffect(() => {
         renderCount.current = renderCount.current + 1
-    })
+    },[])
     console.log(`User cart rendered ${renderCount.current} times`)
 
     function handleDelete(index) {
@@ -48,8 +76,8 @@ function UserCart(props) {
         // update database
         Axios.patch(URL + `/users/${props.id}`, { cart: tempCart })
             .then(res => {
-                setSelectedIndex(null)
-                setQty({ qty: null })
+                // setSelectedIndex(null)
+                // setQty({ qty: null })
                 Axios.get(URL + `/users/${props.id}`)
                     .then((res) => props.login(res.data))
                     .catch((err) => console.log(err))
@@ -57,9 +85,16 @@ function UserCart(props) {
             .catch(err => console.log(err))
     }
 
-    function handleEdit(index, qty) {
-        setSelectedIndex(index)
-        setQty({ qty: qty })
+    function handleEdit(index, qtyx) {
+        console.log(index, qtyx)
+        Axios.get(`http://localhost:2000/products${props.cart[index].cartID}`)
+            .then((res) => {
+                // console.log(res.data[0])
+                setSelectedIndex(index)
+                setData(res.data[0])
+                setQty({ qty: qtyx })
+            })
+            .catch((err) => console.log(err))
     }
 
     function handleCancel() {
@@ -68,8 +103,12 @@ function UserCart(props) {
 
     let tempCart = props.cart
     function handleDone() {
+        if (qty.qty > inventory.stock) return setStockErr(true)
+
         console.log('function handle done executed')
         tempCart[selectedIndex].qty = qty.qty
+        tempCart[selectedIndex].size = inventory.size
+        tempCart[selectedIndex].stock = data.stock
         tempCart[selectedIndex].total = qty.qty * tempCart[selectedIndex].price
 
         // update database
@@ -77,39 +116,44 @@ function UserCart(props) {
             .then(res => {
                 setSelectedIndex(null)
                 setQty({ qty: null })
+
+                // Axios.patch(URL + `/products/${props.cart.name}`,{ stock: stock.map((item, index)) => {}})
             })
             .catch(err => console.log(err))
     }
 
     function handleCheckOut() {
-        if (props.cart.length === 0) return
-        setAlert(true)
+        if (props.cart.length !== 0) return setAlert(true)
+
+        setCartEmpty(true)
     }
 
 
 
-    // function hanldeOk() {
-    //     let history = {
-    //         userId: props.id,
-    //         date: new Date().toLocaleString(),
-    //         total: props.cart.map(item => item.total).reduce((a, b) => a + b),
-    //         transactions: props.cart
-    //     }
-    //     // console.log(history)
+    function hanldeOk() {
+        let history = {
+            userid: props.id,
+            username: props.username,
+            date: new Date().toLocaleString(),
+            total: props.cart.map(item => item.total).reduce((a, b) => a + b),
+            products: props.cart,
+            invoice: 0
+        }
+        // console.log(history)
 
-    //     // update database
-    //     Axios.post(URL + '/transaction_histories', history)
-    //         .then(res => {
+        // update database
+        Axios.post(URL + '/transaction_history', history)
+            .then(res => {
 
-    //             // delete user cart
-    //             Axios.patch(URL + `/users/${props.id}`, { cart: [] })
-    //                 .then(res => {
-    //                     props.login()
-    //                     setAlert(false)
-    //                 })
-    //         })
-    //         .catch(err => console.log(err))
-    // }
+                // delete user cart
+                Axios.patch(URL + `/users/${props.id}`, { cart: [] })
+                    .then(res => {
+                        setAlert(false)
+                        props.login(res.data)
+                    })
+            })
+            .catch(err => console.log(err))
+    }
 
     function renderTableHead() {
         return (
@@ -130,105 +174,133 @@ function UserCart(props) {
     }
 
     let totalAmount = 0
-    function totAmount () {
+    function totAmount() {
         for (let i = 0; i < tempCart.length; i++) {
-            totalAmount += tempCart[i].qty * tempCart[i].price
+            totalAmount += tempCart[i].total
         }
-        console.log(totalAmount)
+        // console.log(totalAmount)
+    }
+
+    function confPayment() {
+        console.log(nominal.current.value)
+        if (totalAmount > nominal.current.value) return setAlertNominal(true)
+        setPassword(true)
+        setAlert(false)
     }
 
     if (!props.username) return <Redirect to='/login' />
+    if (history) return <Redirect to='/history' />
+    console.log(qty.qty, inventory.stock)
     return (
         <div style={styles.root}>
             <div style={styles.title}>
                 <h1 style={styles.subTitle}><i className="fas fa-shopping-cart"></i> User Cart</h1>
             </div>
-            <Table responsive striped bordered hover variant= 'light' 
-            style={{borderRadius:"15px",background: 'rgba(82, 192, 192, 0.5)'}}>
+            <Table responsive striped bordered hover variant='light'
+                style={{ borderRadius: "15px", background: 'rgba(82, 192, 192, 0.5)' }}>
                 {renderTableHead()}
                 <tbody>
                     {
                         // NOTE penting ini supaya pas refresh ga error
                         (props.cart ? props.cart : []).map((item, index) => (
-                        <tr key={index}>
-                            <td style={{ textAlign: "center" }}>{index + 1}</td>
-                            <td style={{ textAlign: "center" }}>{item.name}</td>
-                            <td style={{ backgroundColor:"white" }}>
-                                <img src={item.image[0]} width="120px" alt="product-img" />
-                            </td>
-                            <td style={{ textAlign: "center" }}>{item.brand}</td>
-                            <td style={{ textAlign: "center" }}>IDR {(item.price).toLocaleString()}</td>
-                            <td style={{ textAlign: "center" }}>{item.size}</td>
-                            <td style={{ textAlign: "center" }}>
-                                {
-                                    selectedIndex === index ?
-                                        <div style={styles.qty}>
-                                            <IconButton disabled={qty.qty === 0 ? true : false} 
-                                            onClick={() => setQty({ qty: qty.qty - 1 })}>
-                                                <RemoveCircleIcon />
-                                            </IconButton>
-                                            <h5 style={styles.qtyInfo}>{qty.qty}</h5>
-                                            <IconButton disabled={qty.qty >= item.stock ? true : false} 
-                                            onClick={() => setQty({ qty: qty.qty + 1 })}>
-                                                <AddCircleIcon />
-                                            </IconButton>
-                                        </div>
-                                        :
-                                        item.qty
-                                }
-                            </td>
-                            <td style={{ textAlign: "center" }}>
-                                {
-                                    selectedIndex === index ?
-                                        `IDR ${(item.price * qty.qty).toLocaleString()}` 
-                                        : `IDR ${(item.total).toLocaleString()}`
-                                }
-                            </td>
-                            <td>
-                                {
-                                    selectedIndex === index ?
-                                        <>
-                                            <Button
-                                                startIcon={<DoneIcon />}
-                                                color="primary"
-                                                onClick={handleDone}
-                                            >
-                                                Done
-                            </Button>
-                                            <Button
-                                                startIcon={<ClearIcon />}
-                                                color="primary"
-                                                onClick={handleCancel}
-                                            >
-                                                Cancel
-                            </Button>
-                                        </>
-                                        :
-                                        <>
-                                            <Button
-                                                startIcon={<EditIcon />}
-                                                color="primary"
-                                                onClick={() => handleEdit(index, item.qty)}
-                                            >
-                                                Edit
-                            </Button>
-                                            <Button
-                                                startIcon={<DeleteIcon />}
-                                                color="secondary"
-                                                onClick={() => handleDelete(index)}
-                                            >
-                                                Delete
-                            </Button>
-                                        </>
-                                }
-                            </td>
-                        </tr>
-                    ))}
+                            <tr key={index}>
+                                <td style={{ textAlign: "center" }}>{index + 1}</td>
+                                <td style={{ textAlign: "center" }}>{item.name}</td>
+                                <td style={{ backgroundColor: "white" }}>
+                                    <img src={item.image[0]} width="120px" alt="product-img" />
+                                </td>
+                                <td style={{ textAlign: "center" }}>{item.brand}</td>
+                                <td style={{ textAlign: "center" }}>IDR {(item.price).toLocaleString()}</td>
+                                <td style={{ textAlign: "center" }}>
+                                    {
+                                        selectedIndex === index ?
+                                            // NOTE penting ini supaya ga kosong pas di refresh
+                                            (data.stock ? data.stock : []).map((item, index) => {
+                                                return <Button
+                                                    key={index}
+                                                    variant='outlined'
+                                                    onClick={() => setInventory({ stock: item.total, selectedSize: index, size: item.code })}
+                                                    style={{
+                                                        backgroundColor: inventory.selectedSize === index ? '#130f40' : '#ffffff',
+                                                        color: inventory.selectedSize === index ? 'white' : 'black',
+                                                        border: '1px #130f40 solid',
+                                                        display: 'flex',
+                                                        flexDirection: 'coloumn'
+                                                    }}
+                                                >{item.code}</Button>
+                                            })
+                                            : item.size}
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                    {
+                                        selectedIndex === index ?
+                                            <div style={styles.qty}>
+                                                <IconButton disabled={qty.qty === 0 ? true : false}
+                                                    onClick={() => setQty({ qty: qty.qty - 1 })}>
+                                                    <RemoveCircleIcon />
+                                                </IconButton>
+                                                <h5 style={styles.qtyInfo}>{qty.qty}</h5>
+                                                <IconButton disabled={qty.qty >= inventory.stock ? true : false}
+                                                    onClick={() => setQty({ qty: qty.qty + 1 })}>
+                                                    <AddCircleIcon />
+                                                </IconButton>
+                                            </div>
+                                            :
+                                            item.qty
+                                    }
+                                </td>
+                                <td style={{ textAlign: "center" }}>
+                                    {
+                                        selectedIndex === index ?
+                                            `IDR ${(item.price * qty.qty).toLocaleString()}`
+                                            : `IDR ${(item.total).toLocaleString()}`
+                                    }
+                                </td>
+                                <td>
+                                    {
+                                        selectedIndex === index ?
+                                            <>
+                                                <Button
+                                                    startIcon={<DoneIcon />}
+                                                    color="primary"
+                                                    onClick={handleDone}
+                                                >
+                                                    Done
+                                                </Button>
+                                                <Button
+                                                    startIcon={<ClearIcon />}
+                                                    color="primary"
+                                                    onClick={handleCancel}
+                                                >
+                                                    Cancel
+                                                </Button>
+                                            </>
+                                            :
+                                            <>
+                                                <Button
+                                                    startIcon={<EditIcon />}
+                                                    color="primary"
+                                                    onClick={() => handleEdit(index, item.qty)}
+                                                >
+                                                    Edit
+                                                </Button>
+                                                <Button
+                                                    startIcon={<DeleteIcon />}
+                                                    color="secondary"
+                                                    onClick={() => handleDelete(index)}
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </>
+                                    }
+                                </td>
+                            </tr>
+                        ))}
                 </tbody>
             </Table>
             {totAmount()}
-            <div style={{justifyContent:'right', marginLeft:'80%'}}>
-            <h4>Subtotal: IDR {totalAmount ? totalAmount.toLocaleString() : 0}</h4>
+            <div>
+                <h4 style={{ textAlign: 'right' }}>Subtotal: IDR {totalAmount ? totalAmount.toLocaleString() : 0}</h4>
             </div>
             <Button
                 variant="contained"
@@ -237,13 +309,99 @@ function UserCart(props) {
                 onClick={handleCheckOut}
             >
                 Check Out
-                </Button>
-            <Alert
-                open={alert}
-                title="Are you sure to check out and finish transaction ?"
-                handleClose={_ => setAlert(false)}
-            // handleOk={hanldeOk}
-            />
+            </Button>
+            <Modal show={alert} onHide={() => setAlert(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm checkout</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Subtotal of your item is amounted IDR {totalAmount.toLocaleString()}
+                    <Form.Control ref={nominal} type='number' placeholder="input your payment" />
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => setAlert(false)}>
+                        Close
+                    </Button>
+                    <Button onClick={confPayment}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={alertNominal} onHide={() => setAlertNominal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Payment amount is not enough</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ height: '200px' }}>
+                    Please input correct amount of payment !
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => setAlertNominal(false)}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={password} onHide={() => setPassword(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirmation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Please input your password
+                    <Form.Control ref={pass} type='password' placeholder="input your password" />
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={confPassword}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={errPass} onHide={() => setErrPass(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Your password does not match</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    error !
+                    <Form.Control ref={pass} type='password' placeholder="input your password" />
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={confPassword}>
+                        Confirm
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={stockErr} onHide={() => setStockErr(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title style={{ textAlign: 'center' }}>
+                        {inventory.stock === 0 ? 'THE SELECTED ITEM IS NOT AVAILABLE'
+                            : `YOUR PURCHASE EXCEED STOCK (>${inventory.stock}PCS)`}
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    {inventory.stock === 0 ? 'PLEASE SELECT ANOTHER SIZE OR PRODUCT'
+                        : `PLEASE BUY THIS PRODUCT NOT MORE THAN ${inventory.stock} PCS`}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => setStockErr(false)}>
+                        OK
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={cartEmpty} onHide={() => setCartEmpty(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title style={{ textAlign: 'center' }}>YOUR CART IS EMPTY</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{ textAlign: 'center' }}>
+                    PLEASE ADD OUR PRODUCT TO CART TO CONTINUE SHOPPING
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={() => setCartEmpty(false)}>
+                        OK
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            {alertNominal}
         </div>
     )
 }
@@ -297,7 +455,8 @@ let mapStateToProps = (props) => {
     return ({
         username: props.user.username,
         cart: props.user.cart,
-        id: props.user.id
+        id: props.user.id,
+        password: props.user.password
     })
 }
 
